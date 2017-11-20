@@ -15,8 +15,11 @@ import java.util.List;
 @Dao
 public interface FilmsDao {
 
-    @Query("SELECT * FROM films")
-    List<FilmEntity> getFilms();
+    @Query("SELECT * FROM films WHERE :query IS NULL " +
+            "OR name LIKE '%' || :query  || '%' " +
+            "OR description LIKE '%' || :query  || '%'" +
+            "ORDER BY year")
+    List<FilmEntity> getFilms(String query);
 
     @Insert
     void insertAll(List<FilmEntity> films);

@@ -35,7 +35,7 @@ public class FilmsRepositoryImpl implements FilmsRepository {
 
     @Override
     public Single<List<Film>> getFilms(@Nullable String searchQuery) {
-        return Single.fromCallable(() -> filmsDao.getFilms())
+        return Single.fromCallable(() -> filmsDao.getFilms(searchQuery))
                 .map(filmsMapper::toFilms)
                 .subscribeOn(dbScheduler);
     }

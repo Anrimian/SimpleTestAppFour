@@ -36,15 +36,27 @@ public class FilmsRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         one.setId(1);
+        one.setName("one name");
+        one.setDescription("one description");
+        one.setYear(1991);
         fakeFilms.add(one);
 
         two.setId(2);
+        two.setName("two name");
+        two.setDescription("two description");
+        two.setYear(2015);
         fakeFilms.add(two);
 
         three.setId(3);
+        three.setName("three name");
+        three.setDescription("three description");
+        three.setYear(2000);
         fakeFilms.add(three);
 
         four.setId(4);
+        four.setName("four name");
+        four.setDescription("four description");
+        four.setYear(2019);
         fakeFilms.add(four);
 
         Context appContext = InstrumentationRegistry.getTargetContext();
@@ -54,13 +66,29 @@ public class FilmsRepositoryImplTest {
     }
 
     @Test
-    public void getFilms() throws Exception {
-        TestObserver<List<Film>> testObserver = filmsRepository.getFilms(null).test();
+    public void getAllFilmsTest() throws Exception {
+        TestObserver<Film> testObserver = filmsRepository.getFilms(null)
+                .toObservable()
+                .flatMapIterable(films -> films)
+                .test();
 
         testScheduler.advanceTimeBy(10, TimeUnit.SECONDS);
 
         testObserver.assertNoErrors();
-        testObserver.assertValue(fakeFilms);
+        testObserver.assertValues(one, three, two, four);
+    }
+
+    @Test
+    public void findFilmsTest() throws Exception {
+        TestObserver<Film> testObserver = filmsRepository.getFilms("four")
+                .toObservable()
+                .flatMapIterable(films -> films)
+                .test();
+
+        testScheduler.advanceTimeBy(10, TimeUnit.SECONDS);
+
+        testObserver.assertNoErrors();
+        testObserver.assertValue(four);
     }
 
 }

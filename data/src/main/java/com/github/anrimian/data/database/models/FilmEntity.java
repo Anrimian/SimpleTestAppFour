@@ -60,4 +60,15 @@ public class FilmEntity {
     public void setLength(int length) {
         this.length = length;
     }
+
+    @Override
+    public String toString() {
+        return "FilmEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", year=" + year +
+                ", length=" + length +
+                '}';
+    }
 }

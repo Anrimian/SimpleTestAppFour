@@ -68,4 +68,15 @@ public class Film {
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
     }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", year=" + year +
+                ", length=" + length +
+                '}';
+    }
 }
