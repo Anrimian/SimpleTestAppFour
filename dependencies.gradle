@@ -1,0 +1,82 @@
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "26.0.2"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+
+    //Libraries
+    supportLibraryVersion = "26.1.0"
+    rxJavaVersion = "2.1.5"
+    moxyVersion = "1.5.3"
+    butterKnifeVersion = "8.8.1"
+    daggerVersion = "2.12"
+    roomVersion = "1.0.0"
+    mapStructVersion = "1.2.0.Final"
+
+    //Testing
+    jUnitVersion = '4.12'
+    espressoVersion = '3.0.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+
+    presentationDependencies = [
+            supportLibrary:     "com.android.support:appcompat-v7:$supportLibraryVersion",
+            supportLibraryDesign: "com.android.support:design:$supportLibraryVersion",
+            cardView:           "com.android.support:cardview-v7:$supportLibraryVersion",
+            recyclerView:       "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            constraintLayout:   'com.android.support.constraint:constraint-layout:1.0.2',
+            rxAndroid:          'io.reactivex.rxjava2:rxandroid:2.0.1',
+            moxy:               "com.arello-mobile:moxy-app-compat:$moxyVersion",
+            moxyCompiler:       "com.arello-mobile:moxy-compiler:$moxyVersion",
+            butterKnife:        "com.jakewharton:butterknife:$butterKnifeVersion",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:$butterKnifeVersion",
+            dagger:              "com.google.dagger:dagger:$daggerVersion",
+            daggerCompiler:      "com.google.dagger:dagger-compiler:$daggerVersion",
+            javaxAnnotation:    'com.google.code.findbugs:jsr305:2.0.1',
+    ]
+
+    presentationTestDependencies = [
+            dexmaker:           "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito:    "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            junit:              "junit:junit:${jUnitVersion}",
+            espresso:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+    domainDependencies = [
+            rxJava:             "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            javaxAnnotation:    'com.google.code.findbugs:jsr305:2.0.1',
+    ]
+
+    domainTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+    dataDependencies = [
+            rxJava:             "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            javaxAnnotation:    'com.google.code.findbugs:jsr305:2.0.1',
+            room:               "android.arch.persistence.room:runtime:$roomVersion",
+            roomCompiler:       "android.arch.persistence.room:compiler:$roomVersion",
+            mapStruct:          "org.mapstruct:mapstruct:$mapStructVersion",
+            mapStructCompiler:  "org.mapstruct:mapstruct-processor:$mapStructVersion"
+    ]
+
+    dataTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            espresso:           "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            supportTest:        "com.android.support.test:runner:1.0.1",
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+}
