@@ -86,6 +86,34 @@ class FilmsModule {
         four.setDescription("four description");
         four.setYear(2019);
         fakeFilms.add(four);
+
+        Film five = new Film();
+        five.setId(5);
+        five.setName("five name");
+        five.setDescription("five description");
+        five.setYear(1939);
+        fakeFilms.add(five);
+
+        Film six = new Film();
+        six.setId(6);
+        six.setName("six name");
+        six.setDescription("six description");
+        six.setYear(2000);
+        fakeFilms.add(six);
+
+        Film seven = new Film();
+        seven.setId(7);
+        seven.setName("seven name");
+        seven.setDescription("seven description");
+        seven.setYear(2019);
+        fakeFilms.add(seven);
+
+        Film eight = new Film();
+        eight.setId(8);
+        eight.setName("eight name");
+        eight.setDescription("eight description");
+        eight.setYear(2019);
+        fakeFilms.add(eight);
         return fakeFilms;
     }
 }
