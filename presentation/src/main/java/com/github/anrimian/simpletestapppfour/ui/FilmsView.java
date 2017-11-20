@@ -34,7 +34,10 @@ interface FilmsView extends MvpView {
     void bindFilmList(List<Film> films);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
-    void updateList();
+    void notifyItemsRemoved(int itemsCount);
+
+    @StateStrategyType(OneExecutionStateStrategy.class)
+    void notifyItemsInserted(int itemsCount);
 
     @StateStrategyType(OneExecutionStateStrategy.class)
     void bindSearchText(String searchQuery);

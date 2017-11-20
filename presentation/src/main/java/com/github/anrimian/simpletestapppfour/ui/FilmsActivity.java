@@ -115,7 +115,12 @@ public class FilmsActivity extends MvpAppCompatActivity implements FilmsView {
     }
 
     @Override
-    public void updateList() {
-        filmsAdapter.notifyDataSetChanged();
+    public void notifyItemsRemoved(int itemsCount) {
+        filmsAdapter.notifyItemRangeRemoved(0, itemsCount);
+    }
+
+    @Override
+    public void notifyItemsInserted(int itemsCount) {
+        filmsAdapter.notifyItemRangeInserted(0, itemsCount);
     }
 }

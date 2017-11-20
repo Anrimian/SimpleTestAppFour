@@ -1,5 +1,7 @@
 package com.github.anrimian.simpletestapppfour.ui;
 
+import android.text.TextUtils;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.github.anrimian.domain.business.FilmsInteractor;
@@ -94,10 +96,14 @@ public class FilmsPresenter extends MvpPresenter<FilmsView> {
         } else {
             getViewState().showComplete();
         }
-        getViewState().updateList();
+        getViewState().notifyItemsInserted(results.size());
     }
 
     private void startSearch(String searchQuery) {
+        if (TextUtils.isEmpty(searchQuery) && TextUtils.isEmpty(this.searchQuery)) {
+            return;
+        }
+
         this.searchQuery = searchQuery;
 
         if (loadingDisposable != null) {
@@ -108,8 +114,9 @@ public class FilmsPresenter extends MvpPresenter<FilmsView> {
             startSearchDisposable.dispose();
             startSearchDisposable = null;
         }
+        int oldSize = films.size();
         films.clear();
-        getViewState().updateList();
+        getViewState().notifyItemsRemoved(oldSize);
         startLoading();
     }
 }
