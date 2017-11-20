@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">SimpleTestApppFour</string>
+    <string name="app_name">SimpleTestAppFour</string>
+    <string name="useless_image">Ничего не значащая картинка</string>
+    <string name="internal_app_error">Внутренняя ошибка приложения</string>
+    <string name="unexpected_error">Необработанная ошибка</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="search">Поиск</string>
+    <string name="not_found">Ничего не найдено</string>
 </resources>

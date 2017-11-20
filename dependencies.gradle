@@ -42,6 +42,8 @@ ext {
             butterKnifeCompiler: "com.jakewharton:butterknife-compiler:$butterKnifeVersion",
             dagger:              "com.google.dagger:dagger:$daggerVersion",
             daggerCompiler:      "com.google.dagger:dagger-compiler:$daggerVersion",
+            room:               "android.arch.persistence.room:runtime:$roomVersion",
+            roomCompiler:       "android.arch.persistence.room:compiler:$roomVersion",
             javaxAnnotation:    'com.google.code.findbugs:jsr305:2.0.1',
     ]
 
